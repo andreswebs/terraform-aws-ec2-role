@@ -1,9 +1,11 @@
 variable "role_name" {
+  type = string
   default     = null
   description = "Role name; auto-generated if unset"
 }
 
 variable "profile_name" {
+  type = string
   default     = null
   description = "Profile name; auto-generated if unset"
 }
