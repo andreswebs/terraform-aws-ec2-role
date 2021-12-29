@@ -2,19 +2,6 @@
 * Creates an IAM Role and an EC2 instance profile using the role, with a list of attached IAM policies.
 */
 
-terraform {
-  required_version = ">= 1.0.0"
-
-  required_providers {
-
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.46.0"
-    }
-
-  }
-}
-
 data "aws_iam_policy_document" "this" {
   statement {
     actions = ["sts:AssumeRole"]
