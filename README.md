@@ -1,5 +1,8 @@
 # terraform-aws-ec2-role
 
+Creates an IAM Role and an EC2 instance profile using the role, with a list of
+attached IAM policies.
+
 [//]: # (BEGIN_TF_DOCS)
 Creates an IAM Role and an EC2 instance profile using the role, with a list of attached IAM policies.
 
