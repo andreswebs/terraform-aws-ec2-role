@@ -1,7 +1,3 @@
-/**
-* Creates an IAM Role and an EC2 instance profile using the role, with a list of attached IAM policies.
-*/
-
 data "aws_iam_policy_document" "this" {
   statement {
     actions = ["sts:AssumeRole"]
