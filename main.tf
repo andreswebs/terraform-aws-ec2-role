@@ -1,10 +1,16 @@
+data "aws_partition" "current" {}
+
+locals {
+  dns_suffix = data.aws_partition.current.dns_suffix
+}
+
 data "aws_iam_policy_document" "this" {
   statement {
     actions = ["sts:AssumeRole"]
 
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["ec2.${local.dns_suffix}"]
     }
   }
 }
@@ -18,6 +24,7 @@ resource "aws_iam_role" "this" {
 resource "aws_iam_instance_profile" "this" {
   name = var.profile_name
   role = aws_iam_role.this.name
+  tags = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "this" {

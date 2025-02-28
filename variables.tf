@@ -1,11 +1,11 @@
 variable "role_name" {
-  type = string
+  type        = string
   default     = null
   description = "Role name; auto-generated if unset"
 }
 
 variable "profile_name" {
-  type = string
+  type        = string
   default     = null
   description = "Profile name; auto-generated if unset"
 }
@@ -19,5 +19,5 @@ variable "policies" {
 variable "tags" {
   type        = map(string)
   default     = {}
-  description = "Tags to apply to the IAM role"
+  description = "Tags to apply to all created resources"
 }

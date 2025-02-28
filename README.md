@@ -31,7 +31,7 @@ module "ec2_role" {
 | <a name="input_policies"></a> [policies](#input\_policies) | List of policy ARNs to attach to the IAM role | `list(string)` | `[]` | no |
 | <a name="input_profile_name"></a> [profile\_name](#input\_profile\_name) | Profile name; auto-generated if unset | `string` | `null` | no |
 | <a name="input_role_name"></a> [role\_name](#input\_role\_name) | Role name; auto-generated if unset | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the IAM role | `map(string)` | `{}` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all created resources | `map(string)` | `{}` | no |
 
 ## Modules
 
@@ -65,6 +65,7 @@ No modules.
 | [aws_iam_role.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_policy_document.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) | data source |
 
 [//]: # (END_TF_DOCS)
 
