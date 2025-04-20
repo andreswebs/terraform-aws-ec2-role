@@ -10,7 +10,7 @@ variable "profile_name" {
   description = "Profile name; auto-generated if unset"
 }
 
-variable "policies" {
+variable "managed_policy_arns" {
   type        = list(string)
   default     = []
   description = "List of policy ARNs to attach to the IAM role"

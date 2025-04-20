@@ -15,9 +15,10 @@ module "ec2_role" {
   source       = "github.com/andreswebs/terraform-aws-ec2-role"
   role_name    = "demo-ec2-instance"
   profile_name = "demo-ec2-instance"
-  policies = [
+  managed_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
     "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+    "arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess",
   ]
 }
 ```
@@ -28,7 +29,7 @@ module "ec2_role" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_policies"></a> [policies](#input\_policies) | List of policy ARNs to attach to the IAM role | `list(string)` | `[]` | no |
+| <a name="input_managed_policy_arns"></a> [managed\_policy\_arns](#input\_managed\_policy\_arns) | List of policy ARNs to attach to the IAM role | `list(string)` | `[]` | no |
 | <a name="input_profile_name"></a> [profile\_name](#input\_profile\_name) | Profile name; auto-generated if unset | `string` | `null` | no |
 | <a name="input_role_name"></a> [role\_name](#input\_role\_name) | Role name; auto-generated if unset | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all created resources | `map(string)` | `{}` | no |
