@@ -16,8 +16,6 @@ module "ec2_role" {
   role_name    = "demo-ec2-instance"
   profile_name = "demo-ec2-instance"
   managed_policy_arns = [
-    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-    "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
     "arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess",
   ]
 }
@@ -29,8 +27,11 @@ module "ec2_role" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_attach_container_service_policy"></a> [attach\_container\_service\_policy](#input\_attach\_container\_service\_policy) | Whether to attach the `AmazonEC2ContainerServiceforEC2Role` policy | `bool` | `false` | no |
+| <a name="input_default_managed_policy_names"></a> [default\_managed\_policy\_names](#input\_default\_managed\_policy\_names) | List of names of managed policies to attach the instance role | `list(string)` | <pre>[<br/>  "AmazonSSMManagedInstanceCore",<br/>  "CloudWatchAgentServerPolicy"<br/>]</pre> | no |
 | <a name="input_managed_policy_arns"></a> [managed\_policy\_arns](#input\_managed\_policy\_arns) | List of policy ARNs to attach to the IAM role | `list(string)` | `[]` | no |
 | <a name="input_profile_name"></a> [profile\_name](#input\_profile\_name) | Profile name; auto-generated if unset | `string` | `null` | no |
+| <a name="input_role_description"></a> [role\_description](#input\_role\_description) | Role description | `string` | `null` | no |
 | <a name="input_role_name"></a> [role\_name](#input\_role\_name) | Role name; auto-generated if unset | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all created resources | `map(string)` | `{}` | no |
 
@@ -49,14 +50,14 @@ No modules.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.0 |
 
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.0 |
 
 ## Resources
 
@@ -76,4 +77,4 @@ No modules.
 
 ## License
 
-This project is licensed under the [Unlicense](UNLICENSE.md).
+This project is licensed under the [Unlicense](UNLICENSE).
